@@ -6,7 +6,7 @@
 /*   By: rneves-c <rneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:14:57 by rneves-c          #+#    #+#             */
-/*   Updated: 2022/03/23 23:03:33 by rneves-c         ###   ########.fr       */
+/*   Updated: 2022/03/23 23:08:06 by rneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-int	ft_power(int exp)
+static int	ft_power(int exp)
 {
 	int	nbr;
 
@@ -56,7 +56,7 @@ int	ft_power(int exp)
 	return (nbr);
 }
 
-int	ft_size_nbr(unsigned int n)
+static int	ft_size_nbr(unsigned int n)
 {
 	int	size;
 
