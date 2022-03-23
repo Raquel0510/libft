@@ -6,7 +6,7 @@
 /*   By: rneves-c <rneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:14:57 by rneves-c          #+#    #+#             */
-/*   Updated: 2022/03/23 21:43:18 by rneves-c         ###   ########.fr       */
+/*   Updated: 2022/03/23 23:03:33 by rneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,57 @@ Outputs the integer ’n’ to the given filedescriptor.
 
 #include "libft.h"
 
+int	ft_power(int exp);
+int	ft_size_nbr(unsigned int n);
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nbr;
-	int		i;
+	unsigned int	nbr;
+	int				size;
+	char			c;
 
-	nbr = ft_itoa(n);
-	i = 0;
-	while (nbr[i] != '\0')
+	if (n < 0)
 	{
-		write(fd, &nbr[i], 1);
-		i ++;
+		write(fd, "-", 1);
+		nbr = n * -1;
 	}
-	free (nbr);
+	else
+		nbr = n;
+	size = ft_size_nbr(nbr) - 1;
+	while (size >= 0)
+	{
+		c = (nbr / ft_power(size)) + 48;
+		write(fd, &c, 1);
+		nbr = nbr % ft_power(size);
+		size --;
+	}
+}
+
+int	ft_power(int exp)
+{
+	int	nbr;
+
+	if (exp == 0)
+		return (1);
+	nbr = 10;
+	while (--exp > 0)
+	{
+		nbr = nbr * 10;
+	}
+	return (nbr);
+}
+
+int	ft_size_nbr(unsigned int n)
+{
+	int	size;
+
+	size = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		size ++;
+		n = n / 10;
+	}
+	return (size);
 }
