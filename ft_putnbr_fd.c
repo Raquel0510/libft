@@ -6,7 +6,7 @@
 /*   By: rneves-c <rneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:14:57 by rneves-c          #+#    #+#             */
-/*   Updated: 2022/03/23 23:08:06 by rneves-c         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:37:20 by rneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ Outputs the integer ’n’ to the given filedescriptor.
 
 #include "libft.h"
 
-int	ft_power(int exp);
-int	ft_size_nbr(unsigned int n);
+static int	ft_power(int exp);
+static int	ft_size_nbr(unsigned int n);
 
 void	ft_putnbr_fd(int n, int fd)
 {
